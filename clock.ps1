@@ -210,12 +210,198 @@ $xaml = @'
         <Ellipse Canvas.Left="60" Canvas.Top="124" Width="4" Height="2.6" Fill="#85592f" Opacity="0.7"/>
       </Canvas>
 
+      <!-- egg look: nest + patterned egg that cracks as the timer runs, then hatches -->
+      <Canvas Name="eggL" Canvas.Left="7" Canvas.Top="7" Width="306" Height="146" Visibility="Collapsed" IsHitTestVisible="False">
+        <Canvas.Clip><RectangleGeometry Rect="0,0,306,146" RadiusX="35" RadiusY="35"/></Canvas.Clip>
+        <Viewbox Canvas.Left="7" Canvas.Top="19" Width="108" Height="108">
+          <Canvas Width="100" Height="100">
+            <!-- back of the nest -->
+            <Canvas Width="100" Height="100"><Canvas.RenderTransform><ScaleTransform ScaleX="0.78" CenterX="50"/></Canvas.RenderTransform>
+            <Ellipse Canvas.Left="2" Canvas.Top="60" Width="96" Height="38" Fill="#c9a05a"/>
+            <Ellipse Canvas.Left="8" Canvas.Top="65" Width="84" Height="26" Fill="#8f6a32"/>
+            <Path Data="M4,76 Q8,62 20,62 M96,76 Q92,62 80,62 M16,68 L34,62 M30,65 L52,60 M48,61 L70,62 M66,62 L86,68 M6,70 L22,64 M94,70 L78,64" Stroke="#e6c986" StrokeThickness="2.4" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+            </Canvas>
+            <!-- the hatchling (hidden until the alarm; one of three is shown) -->
+            <Canvas Name="gAnimal" Width="100" Height="100" Visibility="Collapsed" RenderTransformOrigin="0.5,0.75">
+              <Canvas.RenderTransform><TransformGroup><ScaleTransform/><TranslateTransform/><RotateTransform/></TransformGroup></Canvas.RenderTransform>
+              <Canvas Name="gChick" Visibility="Collapsed">
+                <Path Data="M47,24 Q45,16 42,18 M50,23 Q50,13 53,15 M53,24 Q57,17 59,20" Stroke="#f2b705" StrokeThickness="2" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+                <Ellipse Canvas.Left="24" Canvas.Top="38" Width="11" Height="15" Fill="#f7c61f" Stroke="#e0a800" StrokeThickness="0.8"/>
+                <Ellipse Canvas.Left="65" Canvas.Top="38" Width="11" Height="15" Fill="#f7c61f" Stroke="#e0a800" StrokeThickness="0.8"/>
+                <Ellipse Canvas.Left="29" Canvas.Top="22" Width="42" Height="40" Fill="#ffd93b" Stroke="#f2b705" StrokeThickness="1"/>
+                <Ellipse Canvas.Left="40" Canvas.Top="35" Width="5.4" Height="6.6" Fill="#2b1b0e"/>
+                <Ellipse Canvas.Left="54.6" Canvas.Top="35" Width="5.4" Height="6.6" Fill="#2b1b0e"/>
+                <Ellipse Canvas.Left="41.8" Canvas.Top="36" Width="2.2" Height="2.2" Fill="White"/>
+                <Ellipse Canvas.Left="56.4" Canvas.Top="36" Width="2.2" Height="2.2" Fill="White"/>
+                <Ellipse Canvas.Left="33" Canvas.Top="42" Width="7" Height="5" Fill="#ff9aa2" Opacity="0.65"/>
+                <Ellipse Canvas.Left="60" Canvas.Top="42" Width="7" Height="5" Fill="#ff9aa2" Opacity="0.65"/>
+                <Path Data="M45,42.5 L55,42.5 L50,50 Z" Fill="#ff9a2e" Stroke="#e07a10" StrokeThickness="0.8" StrokeLineJoin="Round"/>
+              </Canvas>
+              <Canvas Name="gLlama" Visibility="Collapsed">
+                <Path Data="M39,28 Q33,11 40,9 Q46,13 45,28 Z" Fill="#f3e6c8" Stroke="#e0cfa6" StrokeThickness="0.8" StrokeLineJoin="Round"/>
+                <Path Data="M40.5,26 Q37,15 40,12.5 Q43.5,16 43.5,26 Z" Fill="#ffc9d4"/>
+                <Path Data="M61,28 Q67,11 60,9 Q54,13 55,28 Z" Fill="#f3e6c8" Stroke="#e0cfa6" StrokeThickness="0.8" StrokeLineJoin="Round"/>
+                <Path Data="M59.5,26 Q63,15 60,12.5 Q56.5,16 56.5,26 Z" Fill="#ffc9d4"/>
+                <Ellipse Canvas.Left="35" Canvas.Top="34" Width="30" Height="36" Fill="#f6ecd2" Stroke="#e6d6b0" StrokeThickness="0.8"/>
+                <Ellipse Canvas.Left="28" Canvas.Top="45" Width="13" Height="13" Fill="#fbf3df"/>
+                <Ellipse Canvas.Left="59" Canvas.Top="45" Width="13" Height="13" Fill="#fbf3df"/>
+                <Ellipse Canvas.Left="30" Canvas.Top="55" Width="12" Height="12" Fill="#fbf3df"/>
+                <Ellipse Canvas.Left="58" Canvas.Top="55" Width="12" Height="12" Fill="#fbf3df"/>
+                <Ellipse Canvas.Left="34" Canvas.Top="23" Width="32" Height="27" Fill="#fff7e6" Stroke="#e6d6b0" StrokeThickness="0.8"/>
+                <Ellipse Canvas.Left="41" Canvas.Top="18" Width="9" Height="9" Fill="#fffaf0"/>
+                <Ellipse Canvas.Left="48" Canvas.Top="16.5" Width="10" Height="10" Fill="#fffaf0"/>
+                <Ellipse Canvas.Left="54" Canvas.Top="19" Width="7" Height="7" Fill="#fffaf0"/>
+                <Ellipse Canvas.Left="42" Canvas.Top="38" Width="16" Height="11" Fill="#fffaf0" Stroke="#ecdcb8" StrokeThickness="0.8"/>
+                <Ellipse Canvas.Left="45" Canvas.Top="40.5" Width="1.9" Height="2.3" Fill="#b98a6a"/>
+                <Ellipse Canvas.Left="53.1" Canvas.Top="40.5" Width="1.9" Height="2.3" Fill="#b98a6a"/>
+                <Path Data="M47.5,45.6 Q50,48 52.5,45.6" Stroke="#b98a6a" StrokeThickness="1" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+                <Ellipse Canvas.Left="39.5" Canvas.Top="31" Width="4.8" Height="5.8" Fill="#2b1b0e"/>
+                <Ellipse Canvas.Left="55.7" Canvas.Top="31" Width="4.8" Height="5.8" Fill="#2b1b0e"/>
+                <Ellipse Canvas.Left="41.2" Canvas.Top="32" Width="2" Height="2" Fill="White"/>
+                <Ellipse Canvas.Left="57.4" Canvas.Top="32" Width="2" Height="2" Fill="White"/>
+                <Ellipse Canvas.Left="35" Canvas.Top="38" Width="6" Height="4" Fill="#ffb3c1" Opacity="0.65"/>
+                <Ellipse Canvas.Left="59" Canvas.Top="38" Width="6" Height="4" Fill="#ffb3c1" Opacity="0.65"/>
+              </Canvas>
+              <Canvas Name="gDino" Visibility="Collapsed">
+                <Path Data="M39,31 L42,21 L46,30 Z M46,29 L50,18 L54,29 Z M54,30 L58,21 L61,31 Z" Fill="#6fcf5a" Stroke="#58b246" StrokeThickness="0.8" StrokeLineJoin="Round"/>
+                <Ellipse Canvas.Left="25" Canvas.Top="45" Width="10" Height="7" Fill="#a6e68a" Stroke="#7cc860" StrokeThickness="0.8"/>
+                <Ellipse Canvas.Left="65" Canvas.Top="45" Width="10" Height="7" Fill="#a6e68a" Stroke="#7cc860" StrokeThickness="0.8"/>
+                <Ellipse Canvas.Left="31" Canvas.Top="38" Width="38" Height="30" Fill="#a6e68a" Stroke="#7cc860" StrokeThickness="0.8"/>
+                <Ellipse Canvas.Left="31" Canvas.Top="25" Width="38" Height="30" Fill="#a6e68a" Stroke="#7cc860" StrokeThickness="0.8"/>
+                <Ellipse Canvas.Left="37" Canvas.Top="29" Width="4" Height="4" Fill="#8bd873"/>
+                <Ellipse Canvas.Left="59" Canvas.Top="31" Width="3.5" Height="3.5" Fill="#8bd873"/>
+                <Ellipse Canvas.Left="52" Canvas.Top="27" Width="3" Height="3" Fill="#8bd873"/>
+                <Ellipse Canvas.Left="40" Canvas.Top="40" Width="20" Height="12" Fill="#c9f2b0"/>
+                <Ellipse Canvas.Left="44.4" Canvas.Top="43" Width="1.9" Height="2.2" Fill="#5aa046"/>
+                <Ellipse Canvas.Left="53.7" Canvas.Top="43" Width="1.9" Height="2.2" Fill="#5aa046"/>
+                <Path Data="M45,48.2 Q50,51.5 55,48.2" Stroke="#5aa046" StrokeThickness="1" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+                <Ellipse Canvas.Left="37" Canvas.Top="32" Width="6.4" Height="7.6" Fill="#2b1b0e"/>
+                <Ellipse Canvas.Left="56.6" Canvas.Top="32" Width="6.4" Height="7.6" Fill="#2b1b0e"/>
+                <Ellipse Canvas.Left="39" Canvas.Top="33.2" Width="2.5" Height="2.5" Fill="White"/>
+                <Ellipse Canvas.Left="58.6" Canvas.Top="33.2" Width="2.5" Height="2.5" Fill="White"/>
+                <Ellipse Canvas.Left="32" Canvas.Top="42" Width="6" Height="4" Fill="#ff9fb0" Opacity="0.55"/>
+                <Ellipse Canvas.Left="62" Canvas.Top="42" Width="6" Height="4" Fill="#ff9fb0" Opacity="0.55"/>
+              </Canvas>
+            </Canvas>
+            <!-- the whole egg (cracks appear at 1/4, 2/4, 3/4) -->
+            <Canvas Name="gEggWhole" Width="100" Height="100">
+              <Canvas.Clip><PathGeometry Figures="M50,12 C68,12 78,36 78,54 C78,72 66,84 50,84 C34,84 22,72 22,54 C22,36 32,12 50,12 Z"/></Canvas.Clip>
+              <Canvas.RenderTransform><RotateTransform CenterX="50" CenterY="84"/></Canvas.RenderTransform>
+              <!--ART-->
+              <Canvas Name="gCrack1" Opacity="0">
+                <Path Data="M44,20 L47,27 L44.5,33 L49,39 M61,29 L57.5,35 L60.5,41 M36,27 L39,32 L36.5,37 M54,21 L52,27 L55,32 M67,40 L64,44 L66,48 M31,35 L34,40" Stroke="#3d2b12" StrokeThickness="1.4" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round"/>
+              </Canvas>
+              <Canvas Name="gCrack2" Opacity="0">
+                <Path Data="M49,39 L46,45 L50,51 L47,56 M60.5,41 L64,47 L59,52 M29,48 L35,52 L32,58 L37,61 M27,40 L32,45 L29,50 M40,46 L43,51 L41,57 M66,48 L62,52 L65,57 L61,61 M54,34 L58,40 L55,46" Stroke="#3d2b12" StrokeThickness="1.4" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round"/>
+              </Canvas>
+              <Canvas Name="gCrack3" Opacity="0">
+                <Path Data="M50,51 L56,55 L52,61 L58,66 M37,61 L41,66 L38,72 M59,52 L67,54 L69,60 M47,56 L42,60 L44,66 M52,61 L48,68 L53,74 M58,66 L64,69 L62,75" Stroke="#3d2b12" StrokeThickness="1.4" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round"/>
+              </Canvas>
+            </Canvas>
+            <!-- hatched shell: bottom cup stays, top cap flies off -->
+            <Canvas Name="gShellBot" Width="100" Height="100" Visibility="Collapsed">
+              <Canvas.Clip>
+                <CombinedGeometry GeometryCombineMode="Intersect">
+                  <CombinedGeometry.Geometry1><PathGeometry Figures="M50,12 C68,12 78,36 78,54 C78,72 66,84 50,84 C34,84 22,72 22,54 C22,36 32,12 50,12 Z"/></CombinedGeometry.Geometry1>
+                  <CombinedGeometry.Geometry2><PathGeometry Figures="M18,52 L28,45 L36,54 L44,46 L52,55 L60,46 L68,54 L76,46 L82,52 L82,95 L18,95 Z"/></CombinedGeometry.Geometry2>
+                </CombinedGeometry>
+              </Canvas.Clip>
+              <!--ART-->
+              <Path Data="M18,52 L28,45 L36,54 L44,46 L52,55 L60,46 L68,54 L76,46 L82,52" Stroke="#fff3d6" StrokeThickness="2.2" StrokeLineJoin="Round"/>
+            </Canvas>
+            <Canvas Name="gShellTop" Width="100" Height="100" Visibility="Collapsed">
+              <Canvas.RenderTransform><TransformGroup><RotateTransform CenterX="50" CenterY="36"/><TranslateTransform/></TransformGroup></Canvas.RenderTransform>
+              <Canvas.Clip>
+                <CombinedGeometry GeometryCombineMode="Intersect">
+                  <CombinedGeometry.Geometry1><PathGeometry Figures="M50,12 C68,12 78,36 78,54 C78,72 66,84 50,84 C34,84 22,72 22,54 C22,36 32,12 50,12 Z"/></CombinedGeometry.Geometry1>
+                  <CombinedGeometry.Geometry2><PathGeometry Figures="M18,52 L28,45 L36,54 L44,46 L52,55 L60,46 L68,54 L76,46 L82,52 L82,0 L18,0 Z"/></CombinedGeometry.Geometry2>
+                </CombinedGeometry>
+              </Canvas.Clip>
+              <!--ART-->
+            </Canvas>
+            <Canvas Name="gShards" Visibility="Collapsed"/>
+            <!-- front rim of the nest -->
+            <!-- the nest wraps all the way around the egg: front rim curves up both sides -->
+            <Canvas Width="100" Height="100"><Canvas.RenderTransform><ScaleTransform ScaleX="0.78" CenterX="50"/></Canvas.RenderTransform>
+            <Path Data="M0,70 Q4,80 22,82 Q50,90 78,82 Q96,80 100,70 L100,90 Q50,114 0,90 Z" Stroke="#9a7138" StrokeThickness="1.2" StrokeLineJoin="Round">
+              <Path.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1"><GradientStop Color="#edd496" Offset="0"/><GradientStop Color="#cfa862" Offset="1"/></LinearGradientBrush>
+              </Path.Fill>
+            </Path>
+            <!-- woven straw -->
+            <Path Data="M3,74 L22,90 M14,78 L36,98 M28,84 L52,102 M44,88 L68,102 M60,86 L82,98 M74,82 L94,90 M88,76 L98,84" Stroke="#f6e3b0" StrokeThickness="2.6" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+            <Path Data="M2,84 L24,78 M12,92 L40,84 M30,98 L58,88 M52,102 L78,90 M72,98 L98,82" Stroke="#c79b52" StrokeThickness="2" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+            <Path Data="M8,82 L30,94 M38,92 L62,98 M66,92 L90,92" Stroke="#e0bf7c" StrokeThickness="1.6" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+            <!-- loose straw ends sticking up around the egg -->
+            <Path Data="M7,76 L2,62 M14,80 L10,64 M21,82 L19,68 M79,82 L81,68 M86,80 L90,64 M93,76 L98,62 M34,86 L31,76 M66,86 L69,76" Stroke="#e8cd8c" StrokeThickness="2.2" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+            </Canvas>
+          </Canvas>
+        </Viewbox>
+      </Canvas>
+
+      <!-- garden look: a seed grows into a flowering stem (sprout 1/4, stem + leaves 2/4, bud 3/4, bloom at the end) -->
+      <Canvas Name="gardenL" Canvas.Left="7" Canvas.Top="7" Width="306" Height="146" Visibility="Collapsed" IsHitTestVisible="False">
+        <Canvas.Clip><RectangleGeometry Rect="0,0,306,146" RadiusX="35" RadiusY="35"/></Canvas.Clip>
+        <Viewbox Canvas.Left="7" Canvas.Top="19" Width="108" Height="108">
+          <Canvas Width="100" Height="100">
+            <Canvas Name="gPlant" Width="100" Height="100">
+              <Canvas.RenderTransform><RotateTransform CenterX="50" CenterY="84"/></Canvas.RenderTransform>
+              <!-- step 1: tiny sprout with two seed leaves -->
+              <Canvas Name="gSprout" Width="100" Height="100" Visibility="Collapsed" RenderTransformOrigin="0.5,0.84">
+                <Canvas.RenderTransform><ScaleTransform/></Canvas.RenderTransform>
+                <Path Data="M50,84 C50,78 50,73 50,68" Stroke="#4fae45" StrokeThickness="2.6" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+                <Path Data="M50,72 C43,73 38,69 37,62 C44,61 50,65 50,72 Z" Fill="#6cc95a" Stroke="#4fae45" StrokeThickness="0.8" StrokeLineJoin="Round"/>
+                <Path Data="M50,72 C57,73 62,69 63,62 C56,61 50,65 50,72 Z" Fill="#6cc95a" Stroke="#4fae45" StrokeThickness="0.8" StrokeLineJoin="Round"/>
+              </Canvas>
+              <!-- step 2: tall stem with leaves -->
+              <Canvas Name="gStem" Width="100" Height="100" Visibility="Collapsed" RenderTransformOrigin="0.5,0.84">
+                <Canvas.RenderTransform><ScaleTransform/></Canvas.RenderTransform>
+                <Path Data="M50,84 C50,70 47,52 50,32" Stroke="#4fae45" StrokeThickness="3.4" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+                <Path Data="M49,68 C37,70 27,62 25,50 C37,49 48,56 49,68 Z" Fill="#6cc95a" Stroke="#4fae45" StrokeThickness="0.9" StrokeLineJoin="Round"/>
+                <Path Data="M48,66 C40,62 33,57 29,52" Stroke="#3d8f36" StrokeThickness="0.8" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+                <Path Data="M49,52 C61,53 71,45 73,33 C61,33 51,40 49,52 Z" Fill="#6cc95a" Stroke="#4fae45" StrokeThickness="0.9" StrokeLineJoin="Round"/>
+                <Path Data="M50,50 C58,47 66,41 70,36" Stroke="#3d8f36" StrokeThickness="0.8" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+                <Path Data="M50,38 C45,37 43,32 44,28 C48,29 50,33 50,38 Z M50,38 C55,37 57,32 56,28 C52,29 50,33 50,38 Z" Fill="#6cc95a" Stroke="#4fae45" StrokeThickness="0.7" StrokeLineJoin="Round"/>
+              </Canvas>
+              <!-- step 3: a closed bud, its tip already in the colour of the flower to come -->
+              <Canvas Name="gBud" Width="100" Height="100" Visibility="Collapsed" RenderTransformOrigin="0.5,0.34">
+                <Canvas.RenderTransform><ScaleTransform/></Canvas.RenderTransform>
+                <Path Name="budTip" Data="M50,34 C42,30 43,20 50,11 C57,20 58,30 50,34 Z" Fill="#ff8fbd" Stroke="#ffffff" StrokeThickness="0.5" StrokeLineJoin="Round"/>
+                <Path Data="M50,36 C40,34 39,26 43,21 C45,26 48,29 50,29 C52,29 55,26 57,21 C61,26 60,34 50,36 Z" Fill="#58b34c" Stroke="#3f9b3f" StrokeThickness="0.8" StrokeLineJoin="Round"/>
+              </Canvas>
+              <!-- step 4: the flower opens (one of eight, picked at random) -->
+              <Canvas Name="gFlower" Width="100" Height="100" Visibility="Collapsed" RenderTransformOrigin="0.5,0.3">
+                <Canvas.RenderTransform><ScaleTransform/></Canvas.RenderTransform>
+                <!--FLOWERS-->
+              </Canvas>
+            </Canvas>
+            <!-- soil mound, grass and the seed -->
+            <Path Data="M2,98 C8,85 28,79 50,79 C72,79 92,85 98,98 Z" Stroke="#4a2c14" StrokeThickness="1" StrokeLineJoin="Round">
+              <Path.Fill><LinearGradientBrush StartPoint="0,0" EndPoint="0,1"><GradientStop Color="#92623a" Offset="0"/><GradientStop Color="#5e3a1e" Offset="1"/></LinearGradientBrush></Path.Fill>
+            </Path>
+            <Path Data="M14,87 L11,80 M18,85 L18,78 M22,84 L25,78 M76,84 L74,77 M81,86 L83,79 M85,88 L89,83" Stroke="#4fae45" StrokeThickness="2" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+            <Ellipse Canvas.Left="28" Canvas.Top="90" Width="6" Height="3.4" Fill="#3e240f"/>
+            <Ellipse Canvas.Left="62" Canvas.Top="92" Width="7" Height="3.6" Fill="#3e240f"/>
+            <Ellipse Canvas.Left="40" Canvas.Top="94" Width="4" Height="2.4" Fill="#b98a5a" Opacity="0.7"/>
+            <Ellipse Canvas.Left="72" Canvas.Top="88" Width="4" Height="2.4" Fill="#b98a5a" Opacity="0.7"/>
+            <Canvas Name="gSeed" Width="100" Height="100">
+              <Ellipse Canvas.Left="43" Canvas.Top="74" Width="14" Height="9" Fill="#a8743c" Stroke="#6b4423" StrokeThickness="1" RenderTransformOrigin="0.5,0.5"><Ellipse.RenderTransform><RotateTransform Angle="-14"/></Ellipse.RenderTransform></Ellipse>
+              <Ellipse Canvas.Left="46" Canvas.Top="75.4" Width="5" Height="2.2" Fill="#d9a468" Opacity="0.8"/>
+            </Canvas>
+          </Canvas>
+        </Viewbox>
+      </Canvas>
+
       <!-- look switch: shows the look you would switch to -->
       <Border Name="segStyle" Canvas.Left="189" Canvas.Top="14.5" Width="29" Height="29" CornerRadius="14.5" Background="#33FFFFFF" Cursor="Hand" ToolTip="Ramen look">
         <Grid IsHitTestVisible="False">
           <Path Name="icoBowl" Data="M5,11.5 L19,11.5 C19,16.5 16,19.5 12,19.5 C8,19.5 5,16.5 5,11.5 Z M9,21 L15,21 M9,8.5 Q8,7 9.5,5.5 M12,8.5 Q11,7 12.5,5.5 M15,8.5 Q14,7 15.5,5.5" Width="24" Height="24" Stretch="None"
                 StrokeThickness="1.6" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" HorizontalAlignment="Center" VerticalAlignment="Center"/>
           <Path Name="icoVolc" Visibility="Collapsed" Data="M3.5,20.5 L9.3,10.5 L14.7,10.5 L20.5,20.5 Z M12,7.6 L12,4 M9.4,7.8 L8,5.2 M14.6,7.8 L16,5.2 M11.2,10.5 L10.6,14 L12.2,16.2" Width="24" Height="24" Stretch="None"
+                StrokeThickness="1.6" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+          <Path Name="icoEgg" Visibility="Collapsed" Data="M12,3.5 C16.5,3.5 19,9 19,13 C19,17.5 15.8,20.5 12,20.5 C8.2,20.5 5,17.5 5,13 C5,9 7.5,3.5 12,3.5 Z M5.4,13 L8.6,11 L10.6,14.2 L13.4,11 L15.6,14.2 L18.6,12" Width="24" Height="24" Stretch="None"
+                StrokeThickness="1.6" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+          <Path Name="icoGarden" Visibility="Collapsed" Data="M12,21 L12,11 M7,21 L17,21 M12,14 C12,10 8.5,8.5 5.5,9 C5.5,12.5 8,14 12,14 M12,11.5 C12,7.5 15,5 19,5 C19,9 16,11.5 12,11.5" Width="24" Height="24" Stretch="None"
                 StrokeThickness="1.6" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" HorizontalAlignment="Center" VerticalAlignment="Center"/>
           <Path Name="icoUni" Visibility="Collapsed" Data="M9,19.5 C6.8,16.5 7,12.5 10,10 C12.2,8.2 16,8.4 17.5,11.2 C18.6,13.3 18.4,15.8 16,16.8 L14,17.4 C13,18.6 12,19.5 9,19.5 Z M12,8.8 L14,3 L15.3,8.9 M10.3,9.6 L9,6.2 L12,8.2 M8.6,10.6 Q5.6,12.5 7.2,16.5 M15.3,12.6 L15.4,12.6" Width="24" Height="24" Stretch="None"
                 StrokeThickness="1.6" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -239,9 +425,18 @@ $xaml = @'
       <TextBlock Name="tbDate" Canvas.Left="130" Canvas.Top="98" FontFamily="Segoe UI" FontWeight="SemiBold"
                  FontSize="16" Foreground="#d8b4f0" IsHitTestVisible="False"/>
 
-      <TextBox Name="tbEdit" Canvas.Left="126" Canvas.Top="36" Width="170" Height="54" Visibility="Collapsed"
-               FontFamily="Segoe UI" FontWeight="Bold" FontSize="34" Background="#44000000" Foreground="White"
-               CaretBrush="White" BorderThickness="0" Padding="8,0" VerticalContentAlignment="Center" MaxLength="12"/>
+      <TextBox Name="tbEdit" Canvas.Left="128" Canvas.Top="48" Width="160" Height="42" Visibility="Collapsed"
+               FontFamily="Segoe UI" FontWeight="Bold" FontSize="30" Background="Transparent" Foreground="White"
+               CaretBrush="White" BorderThickness="0,0,0,2" Padding="2,0" VerticalContentAlignment="Center" MaxLength="12">
+        <!-- plain template: the default one turns the border blue / adds hover and focus effects -->
+        <TextBox.Template>
+          <ControlTemplate TargetType="TextBox">
+            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+              <ScrollViewer x:Name="PART_ContentHost" Padding="{TemplateBinding Padding}" VerticalAlignment="Center" Focusable="False"/>
+            </Border>
+          </ControlTemplate>
+        </TextBox.Template>
+      </TextBox>
 
       <!-- timer buttons -->
       <Border Name="bM1" Canvas.Left="128" Canvas.Top="98" Width="28" Height="22" CornerRadius="8" Background="#33FFFFFF" Cursor="Hand">
@@ -299,26 +494,105 @@ $themes = @{
     midnight = @{ a = '#241d4a'; b = '#120f2b'; text = '#ffeaf6'; sub = '#b9a3e8'; border = '#6f5fb0' }
     ramen    = @{ a = '#fff4b8'; b = '#ffe48a'; text = '#5a2412'; sub = '#b0502a'; border = '#e3b54a' }
     volcano  = @{ a = '#3d9be0'; b = '#a6dcf8'; text = '#ffffff'; sub = '#e6f5ff'; border = '#d6efff' }
+    egg      = @{ a = '#0f3320'; b = '#0f3320'; text = '#f4fff0'; sub = '#b9e8d2'; border = '#2f5a42' }
+    garden   = @{ a = '#d9f5c5'; b = '#b9e6a2'; text = '#1f4d2a'; sub = '#3f7d46'; border = '#8fcf86' }
 }
-# shared button colours; the ramen look needs dark-tinted buttons on its light background
+# shared button colours; the light looks (ramen, garden) need dark-tinted buttons
 foreach ($k in @($themes.Keys)) {
     if ($k -eq 'ramen') { $themes[$k] += @{ btn = '#225a2412'; hover = '#445a2412'; segOn = '#455a2412'; segOff = '#1f5a2412'; edit = '#99FFFFFF' } }
+    elseif ($k -eq 'garden') { $themes[$k] += @{ btn = '#221f4d2a'; hover = '#441f4d2a'; segOn = '#451f4d2a'; segOff = '#1f1f4d2a'; edit = '#99FFFFFF' } }
     else { $themes[$k] += @{ btn = '#33FFFFFF'; hover = '#66FFFFFF'; segOn = '#66FFFFFF'; segOff = '#26FFFFFF'; edit = '#44000000' } }
 }
-if (-not $themes.ContainsKey([string]$S.theme) -or $S.theme -in 'ramen', 'volcano') { $S.theme = 'plum' }
-if ($S.style -notin 'ramen', 'volcano') { $S.style = 'unicorn' }
-function Get-ThemeKey { if ($S.style -in 'ramen', 'volcano') { [string]$S.style } else { [string]$S.theme } }
+if (-not $themes.ContainsKey([string]$S.theme) -or $S.theme -in 'ramen', 'volcano', 'egg', 'garden') { $S.theme = 'plum' }
+if ($S.style -notin 'ramen', 'volcano', 'egg', 'garden') { $S.style = 'unicorn' }
+function Get-ThemeKey { if ($S.style -in 'ramen', 'volcano', 'egg', 'garden') { [string]$S.style } else { [string]$S.theme } }
+$script:animalIdx = Get-Random -Maximum 3   # 0 chick, 1 llama, 2 dino: each equally likely, re-rolled every time the alarm rings
 if ($S.mode -ne 'timer') { $S.mode = 'clock' }
 
 # ---------- window ----------
-$win = [Windows.Markup.XamlReader]::Parse($xaml)
+# the egg's colourful pattern is shared by the whole egg and both shell halves, so it is built once here
+$ci = [Globalization.CultureInfo]::InvariantCulture   # always write decimals with a dot, whatever the PC's region
+$dots = ''
+foreach ($d in @(@(44,16),@(52,16),@(36,22),@(44,22),@(52,22),@(60,22),@(28,28),@(36,28),@(44,28),@(52,28),@(60,28),@(68,28))) {
+    $dots += [string]::Format($ci, '<Ellipse Canvas.Left="{0}" Canvas.Top="{1}" Width="3.2" Height="3.2" Fill="White"/>', ($d[0] - 1.6), ($d[1] - 1.6))
+}
+foreach ($d in @(@(26,75),@(38,75),@(50,75),@(62,75),@(74,75),@(32,82),@(44,82),@(56,82),@(68,82))) {
+    $dots += [string]::Format($ci, '<Ellipse Canvas.Left="{0}" Canvas.Top="{1}" Width="5.4" Height="5.4" Fill="#2a6fdb"/><Ellipse Canvas.Left="{2}" Canvas.Top="{3}" Width="2" Height="2" Fill="#bfe0ff"/>', ($d[0] - 2.7), ($d[1] - 2.7), ($d[0] - 1), ($d[1] - 1))
+}
+$eggArt = @"
+<Rectangle Width="100" Height="100"><Rectangle.Fill><LinearGradientBrush StartPoint="0,0" EndPoint="0,1"><GradientStop Color="#ff8f6b" Offset="0"/><GradientStop Color="#ff5f8a" Offset="1"/></LinearGradientBrush></Rectangle.Fill></Rectangle>
+<Rectangle Canvas.Top="8" Width="100" Height="26" Fill="#6a4bd8"/>
+<Path Data="M0,38 Q12,32 25,38 T50,38 T75,38 T100,38 L100,48 Q88,54 75,48 T50,48 T25,48 T0,48 Z" Fill="#27c6b8"/>
+<Path Data="M0,60 L10,52 L20,60 L30,52 L40,60 L50,52 L60,60 L70,52 L80,60 L90,52 L100,60" Stroke="#ffe14d" StrokeThickness="3.2" StrokeLineJoin="Round"/>
+<Path Data="M0,67 L10,59 L20,67 L30,59 L40,67 L50,59 L60,67 L70,59 L80,67 L90,59 L100,67" Stroke="White" StrokeThickness="1.4" StrokeLineJoin="Round" Opacity="0.85"/>
+$dots
+<Ellipse Canvas.Left="30" Canvas.Top="36" Width="8" Height="20" Fill="White" Opacity="0.28" RenderTransformOrigin="0.5,0.5"><Ellipse.RenderTransform><RotateTransform Angle="18"/></Ellipse.RenderTransform></Ellipse>
+<Path Data="M50,12 C68,12 78,36 78,54 C78,72 66,84 50,84 C34,84 22,72 22,54 C22,36 32,12 50,12 Z" Stroke="#8a3d2a" StrokeThickness="1.4"/>
+"@
+# garden: eight flower heads, all centred on (50,30) so the stem tip lines up. Petals are drawn rotated around that point.
+function Get-Petals($n, $rx, $ry, $cd, $fill, $stroke, $off) {
+    $o = ''
+    for ($i = 0; $i -lt $n; $i++) {
+        $o += [string]::Format($ci, '<Path Fill="{0}" Stroke="{1}" StrokeThickness="0.5"><Path.Data><EllipseGeometry Center="50,{2}" RadiusX="{3}" RadiusY="{4}"/></Path.Data><Path.RenderTransform><RotateTransform Angle="{5}" CenterX="50" CenterY="30"/></Path.RenderTransform></Path>',
+            $fill, $stroke, (30 - $cd), $rx, $ry, ($off + 360.0 * $i / $n))
+    }
+    $o
+}
+function Get-Pointed($n, $w, $len, $fill, $stroke, $off) {
+    $o = ''
+    for ($i = 0; $i -lt $n; $i++) {
+        $o += [string]::Format($ci, '<Path Fill="{0}" Stroke="{1}" StrokeThickness="0.6" StrokeLineJoin="Round" Data="M50,30 Q{2},{3} 50,{4} Q{5},{3} 50,30 Z"><Path.RenderTransform><RotateTransform Angle="{6}" CenterX="50" CenterY="30"/></Path.RenderTransform></Path>',
+            $fill, $stroke, (50 + $w), (30 - $len / 2), (30 - $len), (50 - $w), ($off + 360.0 * $i / $n))
+    }
+    $o
+}
+function Get-Disc($r, $fill, $stroke) { [string]::Format($ci, '<Ellipse Canvas.Left="{0}" Canvas.Top="{1}" Width="{2}" Height="{2}" Fill="{3}" Stroke="{4}" StrokeThickness="0.6"/>', (50 - $r), (30 - $r), (2 * $r), $fill, $stroke) }
+$fl = @()
+# 0 daisy
+$fl += (Get-Petals 12 2.8 8 11.5 '#ffffff' '#cfd3e6' 0) + (Get-Disc 5.6 '#ffcc1a' '#e0a800')
+# 1 sunflower
+$fl += (Get-Petals 14 3.6 8.5 12.5 '#ffc30f' '#e09b00' 0) + (Get-Petals 14 3 7 11 '#ffd84a' '#e8aa10' 12.86) + (Get-Disc 9.5 '#6b3f1d' '#4a2a10') + (Get-Petals 8 1 1 5.2 '#a8743c' '#a8743c' 10) + (Get-Disc 2.4 '#3e240f' '#3e240f')
+# 2 tulip
+$fl += '<Path Data="M37,22 C36,35 42,43 50,43 C58,43 64,35 63,22 L57,28 L50,16 L43,28 Z" Fill="#e8384f" Stroke="#b01f36" StrokeThickness="0.8" StrokeLineJoin="Round"/><Path Data="M43,28 L50,16 L57,28 C58,37 55,42 50,43 C45,42 42,37 43,28 Z" Fill="#ff6178" Stroke="#b01f36" StrokeThickness="0.6" StrokeLineJoin="Round"/><Path Data="M46,26 C45,32 46.5,36 48.5,39" Stroke="White" StrokeThickness="1.2" Opacity="0.4" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>'
+# 3 pink cosmos
+$fl += (Get-Petals 8 5 9 11 '#ff8fbd' '#e0568f' 0) + (Get-Petals 8 3 6 8.5 '#ffb8d4' '#ffb8d4' 22.5) + (Get-Disc 4.2 '#ffd23f' '#e0a800')
+# 4 violet
+$fl += (Get-Petals 5 7.5 8.5 10 '#9b6be0' '#6f3fb8' 0) + (Get-Petals 5 2 4 6 '#d9c2ff' '#d9c2ff' 36) + (Get-Disc 3.6 '#fff3a8' '#f2a900')
+# 5 poppy
+$fl += (Get-Petals 4 10 10.5 9.5 '#ff4a2a' '#c92a10' 45) + (Get-Petals 4 6 6 7 '#ff7a4a' '#ff7a4a' 0) + (Get-Petals 10 0.9 0.9 7 '#2b1b1b' '#2b1b1b' 0) + (Get-Disc 3.6 '#3b3b2a' '#2b1b1b')
+# 6 cornflower
+$fl += (Get-Petals 10 2.8 8.5 12 '#4a7bff' '#2a52c8' 0) + (Get-Petals 8 2.4 6 8.5 '#7aa0ff' '#7aa0ff' 18) + (Get-Disc 3.4 '#2c3e9e' '#1b2870')
+# 7 lily
+$fl += (Get-Pointed 6 7 21 '#ff9a4a' '#d9691a' 0) + (Get-Pointed 6 4 16 '#ffc084' '#ffc084' 30) + (Get-Petals 6 1 1 7 '#a63a14' '#a63a14' 0) + (Get-Disc 2.6 '#fff2c2' '#d9a23a')
+$flowerArt = ''
+for ($i = 0; $i -lt 8; $i++) { $flowerArt += '<Canvas Name="gF' + $i + '" Width="100" Height="100" Visibility="Collapsed">' + $fl[$i] + '</Canvas>' }
+$flowerCol = '#fffdf5', '#ffc30f', '#e8384f', '#ff8fbd', '#9b6be0', '#ff4a2a', '#4a7bff', '#ff9a4a'   # bud tip colour per flower
+$script:flowerIdx = Get-Random -Maximum 8   # re-rolled each time a ring is dismissed, so the bud already shows the colour to come
+$script:flowerShown = -1; $script:lastTmState = ''
+$win = [Windows.Markup.XamlReader]::Parse($xaml.Replace('<!--ART-->', $eggArt).Replace('<!--FLOWERS-->', $flowerArt))
 $ui = @{}
-foreach ($n in 'card','tbTime','tbDate','grip','segStyle','icoBowl','icoUni','icoVolc','bowl','volcL','volc','crGlow','gFlow','gBoom','plume','skyGrey','ash0','ash1','ash2','bub0','bub1','bub2','bub3','bub4','bub5','gNoodle','gMush','gVeg','gChop','segClock','segTimer','txClock','txTimer','bM1','bP1','bP5','bPlay','bReset','txPlay',
+foreach ($n in 'card','tbTime','tbDate','grip','segStyle','icoBowl','icoUni','icoVolc','icoEgg','icoGarden','gardenL','gPlant','gSprout','gStem','gBud','budTip','gFlower','gSeed','eggL','gEggWhole','gCrack1','gCrack2','gCrack3','gShellBot','gShellTop','gAnimal','gChick','gLlama','gDino','gShards','bowl','volcL','volc','crGlow','gFlow','gBoom','plume','skyGrey','ash0','ash1','ash2','bub0','bub1','bub2','bub3','bub4','bub5','gNoodle','gMush','gVeg','gChop','segClock','segTimer','txClock','txTimer','bM1','bP1','bP5','bPlay','bReset','txPlay',
                'lava','lavaCanvas','tbEdit','blob0','blob1','blob2','sp1','sp2','sp3','sp4','uni') { $ui[$n] = $win.FindName($n) }
 $uniT = $ui.uni.RenderTransform
 $bowlT = $ui.bowl.RenderTransform
 $volcT = $ui.volc.RenderTransform
 $ashes = @($ui.ash0, $ui.ash1, $ui.ash2)
+$animals = @($ui.gChick, $ui.gLlama, $ui.gDino)
+$flowers = @(0..7 | ForEach-Object { $win.FindName("gF$_") })
+# shell shards that burst out when the egg hatches
+$shards = @()
+$shardSpec = @(
+    @(-34,-70,'#ff7b6b',4), @(30,-78,'#6a4bd8',4.4), @(-14,-92,'#27c6b8',3.6), @(40,-60,'#ffe14d',4),
+    @(8,-96,'#ff5f8a',3.8), @(-42,-56,'#2a6fdb',4.2), @(18,-84,'#ff7b6b',3.4), @(-24,-82,'#ffe14d',3.8),
+    @(46,-72,'#27c6b8',4), @(-6,-76,'#6a4bd8',3.6)
+)
+foreach ($ss in $shardSpec) {
+    $e = New-Object Windows.Shapes.Ellipse
+    $e.Width = $ss[3]; $e.Height = $ss[3] * 0.7; $e.Opacity = 0
+    $e.Fill = New-Object Windows.Media.SolidColorBrush ([Windows.Media.ColorConverter]::ConvertFromString($ss[2]))
+    $ui.gShards.Children.Add($e) | Out-Null
+    $shards += @{ el = $e; vx = [double]$ss[0]; vy = [double]$ss[1] }
+}
 # flying rocks and lava blobs for the eruption (created here so the XAML stays short)
 $rocks = @()
 $rockSpec = @(
@@ -484,11 +758,13 @@ function Update-Chrome {
     # look switch shows the NEXT look in the cycle: unicorn -> (bowl) ramen -> (volcano) -> (unicorn)
     $st = [string]$S.style
     $ui.segStyle.Background = Brush $t.btn
-    $ui.icoBowl.Stroke = $on; $ui.icoUni.Stroke = $on; $ui.icoVolc.Stroke = $on
+    $ui.icoBowl.Stroke = $on; $ui.icoUni.Stroke = $on; $ui.icoVolc.Stroke = $on; $ui.icoEgg.Stroke = $on; $ui.icoGarden.Stroke = $on
+    $ui.icoGarden.Visibility = if ($st -eq 'egg') { 'Visible' } else { 'Collapsed' }
     $ui.icoBowl.Visibility = if ($st -eq 'unicorn') { 'Visible' } else { 'Collapsed' }
     $ui.icoVolc.Visibility = if ($st -eq 'ramen') { 'Visible' } else { 'Collapsed' }
-    $ui.icoUni.Visibility = if ($st -eq 'volcano') { 'Visible' } else { 'Collapsed' }
-    $ui.segStyle.ToolTip = switch ($st) { 'unicorn' { 'Ramen look' } 'ramen' { 'Volcano look' } default { 'Unicorn look' } }
+    $ui.icoEgg.Visibility = if ($st -eq 'volcano') { 'Visible' } else { 'Collapsed' }
+    $ui.icoUni.Visibility = if ($st -eq 'garden') { 'Visible' } else { 'Collapsed' }
+    $ui.segStyle.ToolTip = switch ($st) { 'unicorn' { 'Ramen look' } 'ramen' { 'Volcano look' } 'volcano' { 'Egg look' } 'egg' { 'Garden look' } default { 'Unicorn look' } }
 }
 function Set-Style($name) {
     $S.style = $name; Apply-Theme; Update-Display; Save-Settings
@@ -499,8 +775,13 @@ function Apply-Theme {
     $ui.uni.Visibility = if ($st -eq 'unicorn') { 'Visible' } else { 'Collapsed' }
     $ui.bowl.Visibility = if ($st -eq 'ramen') { 'Visible' } else { 'Collapsed' }
     $ui.volcL.Visibility = if ($st -eq 'volcano') { 'Visible' } else { 'Collapsed' }
+    $ui.eggL.Visibility = if ($st -eq 'egg') { 'Visible' } else { 'Collapsed' }
+    $ui.gardenL.Visibility = if ($st -eq 'garden') { 'Visible' } else { 'Collapsed' }
     foreach ($sp in $sparks) { $sp.Visibility = if ($st -eq 'unicorn') { 'Visible' } else { 'Collapsed' } }
-    $ui.tbEdit.Background = Brush $t.edit
+    $ui.tbEdit.Background = [Windows.Media.Brushes]::Transparent   # see-through box with just a theme-coloured underline
+    # underline matches the progress-bar (lava lamp) colour of the current look
+    $ul = switch ($st) { 'ramen' { Hsv 6 0.78 0.92 } 'volcano' { Hsv 20 0.78 0.92 } 'egg' { Hsv 342 0.58 1.0 } 'garden' { Hsv 128 0.6 0.72 } default { Hsv 46 0.5 1.0 } }
+    $ui.tbEdit.BorderBrush = New-Object Windows.Media.SolidColorBrush $ul
     foreach ($b in $buttons) { $b.Background = Brush $t.btn }
     $g = New-Object Windows.Media.LinearGradientBrush
     $g.StartPoint = '0,0'; $g.EndPoint = '1,1'
@@ -594,8 +875,8 @@ foreach ($b in $buttons) {
     $b.Add_MouseLeave({ $this.Background = Brush $themes[(Get-ThemeKey)].btn })
 }
 $ui.segStyle.Add_MouseLeftButtonDown({
-    # cycle: unicorn -> ramen -> volcano -> unicorn
-    Set-Style $(switch ($S.style) { 'unicorn' { 'ramen' } 'ramen' { 'volcano' } default { 'unicorn' } }); $_.Handled = $true
+    # cycle: unicorn -> ramen -> volcano -> egg -> garden -> unicorn
+    Set-Style $(switch ($S.style) { 'unicorn' { 'ramen' } 'ramen' { 'volcano' } 'volcano' { 'egg' } 'egg' { 'garden' } default { 'unicorn' } }); $_.Handled = $true
 })
 $ui.bM1.Add_MouseLeftButtonDown({ Add-Minutes -1; Update-Display; $_.Handled = $true })
 $ui.bP1.Add_MouseLeftButtonDown({ Add-Minutes 1; Update-Display; $_.Handled = $true })
@@ -688,6 +969,7 @@ $timer.Add_Tick({
         # alarm fires
         if ($TM.state -eq 'running' -and ($TM.end - $now).TotalSeconds -le 0) {
             $TM.state = 'ringing'; $TM.remaining = 0.0; $TM.ringAt = $now; $TM.chimes = 0; $TM.lastChime = [DateTime]::MinValue
+            $script:animalIdx = Get-Random -Maximum 3
             $S.mode = 'timer'; $script:lastKey = ''
         }
         $ringing = ($TM.state -eq 'ringing')
@@ -730,6 +1012,91 @@ $timer.Add_Tick({
                 }
             }
         }
+        if ($S.style -eq 'egg') {
+            # hatchT: <0 = still an egg, 0.. = seconds since hatching, 99 = clock mode (hatchling sits in the nest)
+            $hatchT = if ($ringing) { ($now - $TM.ringAt).TotalSeconds } elseif ($allIn) { 99.0 } else { -1.0 }
+            $cr = { param($th) [Math]::Min(1.0, [Math]::Max(0.0, ($pr - $th) / 0.03)) }
+            if ($hatchT -lt 0.6) {
+                $ui.gEggWhole.Visibility = 'Visible'
+                $ui.gShellBot.Visibility = 'Collapsed'; $ui.gShellTop.Visibility = 'Collapsed'
+                $ui.gAnimal.Visibility = 'Collapsed'; $ui.gShards.Visibility = 'Collapsed'
+                if ($hatchT -lt 0) {
+                    $ui.gCrack1.Opacity = & $cr 0.25; $ui.gCrack2.Opacity = & $cr 0.5; $ui.gCrack3.Opacity = & $cr 0.75
+                    # a periodic shake that gets stronger and more frequent as hatching gets closer
+                    $period = 3.4 - 1.4 * $pr; $ph = $tt % $period; $dur = 0.7
+                    $env = if ($ph -lt $dur) { [Math]::Sin([Math]::PI * $ph / $dur) } else { 0.0 }
+                    $ui.gEggWhole.RenderTransform.Angle = (2.5 + 6 * $pr) * $env * [Math]::Sin($tt * 42)
+                } else {
+                    $ui.gCrack1.Opacity = 1; $ui.gCrack2.Opacity = 1; $ui.gCrack3.Opacity = 1
+                    $ui.gEggWhole.RenderTransform.Angle = (6 + 8 * $hatchT / 0.6) * [Math]::Sin($tt * 48)
+                }
+            } else {
+                $ui.gEggWhole.Visibility = 'Collapsed'
+                $ui.gShellBot.Visibility = 'Visible'; $ui.gAnimal.Visibility = 'Visible'
+                for ($j = 0; $j -lt 3; $j++) { $animals[$j].Visibility = if ($j -eq $script:animalIdx) { 'Visible' } else { 'Collapsed' } }
+                # top half of the shell pops off and flies away
+                if ($hatchT -ge 99) { $ui.gShellTop.Visibility = 'Collapsed' }
+                else {
+                    $pp = [Math]::Min(1.0, ($hatchT - 0.6) / 0.9)
+                    $ui.gShellTop.Visibility = 'Visible'
+                    $ui.gShellTop.RenderTransform.Children[0].Angle = 45 * $pp
+                    $ui.gShellTop.RenderTransform.Children[1].X = 34 * $pp
+                    $ui.gShellTop.RenderTransform.Children[1].Y = -64 * $pp + 30 * $pp * $pp
+                    $ui.gShellTop.Opacity = 1.0 - [Math]::Min(1.0, [Math]::Max(0.0, ($hatchT - 1.1) / 0.5))
+                }
+                # hatchling rises out of the shell, then hops happily
+                $q = if ($hatchT -ge 99) { 1.0 } else { [Math]::Min(1.0, ($hatchT - 0.65) / 0.8) }
+                $ease = 1 - [Math]::Pow(1 - $q, 3)
+                $bt = if ($hatchT -ge 99) { $tt } else { $hatchT - 1.5 }
+                $hop = if ($bt -gt 0) { 3 * [Math]::Abs([Math]::Sin($bt * 4.5)) } else { 0.0 }
+                $tg = $ui.gAnimal.RenderTransform.Children
+                $tg[0].ScaleX = 0.7 + 0.3 * $ease; $tg[0].ScaleY = 0.7 + 0.3 * $ease
+                $tg[1].Y = 28 * (1 - $ease) - $hop
+                $tg[2].Angle = if ($bt -gt 0) { 3 * [Math]::Sin($bt * 3) } else { 0.0 }
+                # shell shards burst out
+                $sh = $hatchT - 0.6
+                if ($hatchT -lt 99 -and $sh -lt 1.6) {
+                    $ui.gShards.Visibility = 'Visible'
+                    foreach ($r in $shards) {
+                        $x = 50 + $r.vx * $sh; $y = 50 + $r.vy * $sh + 130 * $sh * $sh
+                        [Windows.Controls.Canvas]::SetLeft($r.el, $x); [Windows.Controls.Canvas]::SetTop($r.el, $y)
+                        $r.el.Opacity = if ($y -gt 92) { 0.0 } else { 1.0 - $sh / 1.6 }
+                    }
+                } else { $ui.gShards.Visibility = 'Collapsed' }
+            }
+        }
+        # a new flower is picked each time a ring is dismissed (so the bud already shows its colour)
+        if ($script:lastTmState -eq 'ringing' -and $TM.state -ne 'ringing') { $script:flowerIdx = Get-Random -Maximum 8 }
+        $script:lastTmState = [string]$TM.state
+        if ($S.style -eq 'garden') {
+            # stages: 0 seed, 1 sprout (1/4), 2 stem + leaves (2/4), 3 bud (3/4), 4 bloom (alarm; clock mode shows it fully grown)
+            $bloomed = ($allIn -or $ringing)
+            $te = if ($ringing) { ($now - $TM.ringAt).TotalSeconds } else { 99.0 }
+            $ge = { param($th, $len) $x = [Math]::Min(1.0, [Math]::Max(0.0, ($pr - $th) / $len)); 1 - [Math]::Pow(1 - $x, 3) }
+            $stg = if ($bloomed) { 4 } elseif ($pr -ge 0.75) { 3 } elseif ($pr -ge 0.5) { 2 } elseif ($pr -ge 0.25) { 1 } else { 0 }
+            $ui.gPlant.RenderTransform.Angle = if ($ringing) { 4 * [Math]::Sin($tt * 14) } else { 1.8 * [Math]::Sin($tt * 1.5) }
+            $ui.gSeed.Visibility   = if ($stg -eq 0) { 'Visible' } else { 'Collapsed' }
+            $ui.gSprout.Visibility = if ($stg -eq 1) { 'Visible' } else { 'Collapsed' }
+            $ui.gStem.Visibility   = if ($stg -ge 2) { 'Visible' } else { 'Collapsed' }
+            $ui.gBud.Visibility    = if ($stg -eq 3) { 'Visible' } else { 'Collapsed' }
+            $ui.gFlower.Visibility = if ($stg -eq 4) { 'Visible' } else { 'Collapsed' }
+            if ($script:flowerShown -ne $script:flowerIdx) {
+                $script:flowerShown = $script:flowerIdx
+                $ui.budTip.Fill = Brush $flowerCol[$script:flowerIdx]
+                for ($j = 0; $j -lt 8; $j++) { $flowers[$j].Visibility = if ($j -eq $script:flowerIdx) { 'Visible' } else { 'Collapsed' } }
+            }
+            $gk = 1.0
+            if ($stg -eq 1) { $gk = [Math]::Max(0.05, (& $ge 0.25 0.06)); $ui.gSprout.RenderTransform.ScaleX = $gk; $ui.gSprout.RenderTransform.ScaleY = $gk }
+            if ($stg -eq 2) { $gk = [Math]::Max(0.05, (& $ge 0.5 0.07)) }
+            $ui.gStem.RenderTransform.ScaleX = $gk; $ui.gStem.RenderTransform.ScaleY = $gk
+            if ($stg -eq 3) { $gk = [Math]::Max(0.05, (& $ge 0.75 0.06)); $ui.gBud.RenderTransform.ScaleX = $gk; $ui.gBud.RenderTransform.ScaleY = $gk }
+            if ($stg -eq 4) {
+                # blossom opens with a little overshoot
+                $gq = [Math]::Min(1.0, $te / 0.8); $gb = 1 + 2.70158 * [Math]::Pow($gq - 1, 3) + 1.70158 * [Math]::Pow($gq - 1, 2)
+                $gb = [Math]::Max(0.05, $gb)
+                $ui.gFlower.RenderTransform.ScaleX = $gb; $ui.gFlower.RenderTransform.ScaleY = $gb
+            }
+        }
         if ($S.style -eq 'ramen') {
             $bowlT.Y = -1.5 * [Math]::Sin($tt * 2.1)
             $bowlT.X = if ($ringing) { 3 * [Math]::Sin($tt * 35) } else { 0 }
@@ -770,12 +1137,15 @@ $timer.Add_Tick({
             if ($TM.state -eq 'running') { $script:lavaT += 0.05 } elseif ($ringing) { $script:lavaT += 0.14 }
             $lt = $script:lavaT
             $rm = ($S.style -ne 'unicorn')   # ramen / volcano: bar flows red or molten orange instead of gold
-            $hb = switch ($S.style) { 'ramen' { 6 } 'volcano' { 20 } default { 46 } }; $hr = if ($rm) { 8 } else { 7 }
-            for ($i = 0; $i -lt 4; $i++) { $lavaStops[$i].Color = Hsv ($hb + $hr * [Math]::Sin($lt * 0.5 + $i * 1.3)) ($(if ($rm) { 0.78 } else { 0.5 }) + 0.15 * [Math]::Sin($lt * 0.4 + $i)) $(if ($rm) { 0.92 } else { 1.0 }) }
+            $hb = switch ($S.style) { 'ramen' { 6 } 'volcano' { 20 } 'egg' { 342 } 'garden' { 128 } default { 46 } }; $hr = if ($rm) { 8 } else { 7 }
+            $sb = if ($S.style -eq 'egg') { 0.58 } elseif ($S.style -eq 'garden') { 0.6 } elseif ($rm) { 0.78 } else { 0.5 }   # egg: soft pink; garden: leafy green
+            for ($i = 0; $i -lt 4; $i++) { $lavaStops[$i].Color = Hsv ($hb + $hr * [Math]::Sin($lt * 0.5 + $i * 1.3)) ($sb + 0.15 * [Math]::Sin($lt * 0.4 + $i)) $(if ($S.style -eq 'egg') { 1.0 } elseif ($S.style -eq 'garden') { 0.72 } elseif ($rm) { 0.92 } else { 1.0 }) }
             for ($j = 0; $j -lt 3; $j++) {
                 [Windows.Controls.Canvas]::SetLeft($blobs[$j], $fillW * (0.5 + 0.42 * [Math]::Sin($lt * 0.55 + $j * 2.2)) - $blobs[$j].Width / 2)
                 [Windows.Controls.Canvas]::SetTop($blobs[$j], 4 + 3 * [Math]::Sin($lt * 0.9 + $j * 1.4) - 7)
-                $blobs[$j].Fill.Color = if ($rm) { Hsv ($hb + 2 + 10 * [Math]::Sin($lt * 0.35 + $j * 1.9)) (0.65 + 0.25 * ($j % 2)) 1.0 }
+                $blobs[$j].Fill.Color = if ($S.style -eq 'garden') { Hsv ($hb + 10 * [Math]::Sin($lt * 0.35 + $j * 1.9)) (0.3 + 0.25 * ($j % 2)) 0.95 }
+                                        elseif ($S.style -eq 'egg') { Hsv ($hb + 6 * [Math]::Sin($lt * 0.35 + $j * 1.9)) (0.3 + 0.3 * ($j % 2)) 1.0 }
+                                        elseif ($rm) { Hsv ($hb + 2 + 10 * [Math]::Sin($lt * 0.35 + $j * 1.9)) (0.65 + 0.25 * ($j % 2)) 1.0 }
                                         else { Hsv (42 + 10 * [Math]::Sin($lt * 0.35 + $j * 1.9)) (0.35 + 0.4 * ($j % 2)) 1.0 }
             }
             $ui.lava.Opacity = if ($TM.state -eq 'idle') { 0.6 } else { 1.0 }
